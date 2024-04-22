@@ -5,8 +5,6 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link } from "react-router-dom";
-import TodoList from "./TodoList";
 
 function NavbarComp() {
   return (
@@ -22,12 +20,12 @@ function NavbarComp() {
               navbarScroll
             >
               <NavDropdown title="Features" id="navbarScrollingDropdown">
-                {/* <Link to={"/todolist"}> */}
-                <NavDropdown.Item href="#action4">Todo List</NavDropdown.Item>
+                {/* <Link to="/todolist"> */}
+                <NavDropdown.Item href="/todolist">Todo List</NavDropdown.Item>
                 {/* </Link> */}
-                <NavDropdown.Item href="#action4">Calendar</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Remainder</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Planner</NavDropdown.Item>
+                <NavDropdown.Item href="/calendar">Calendar</NavDropdown.Item>
+                <NavDropdown.Item href="/remainder">Remainder</NavDropdown.Item>
+                <NavDropdown.Item href="/planner">Planner</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Company" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">History</NavDropdown.Item>

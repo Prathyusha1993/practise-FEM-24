@@ -1,8 +1,10 @@
 import React from "react";
+import NavbarComp from "./NavbarCompo";
 
 function MainPage() {
   return (
     <div>
+      <NavbarComp />
       <h1>Make </h1>
       <h1>remote work</h1>
       <p>
