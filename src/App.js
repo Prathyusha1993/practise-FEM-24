@@ -10,6 +10,8 @@ import OurTeam from "./components/OurTeam";
 import Blog from "./components/Blog";
 import Career from "./components/Career";
 import About from "./components/About";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/career" element={<Career />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </div>
