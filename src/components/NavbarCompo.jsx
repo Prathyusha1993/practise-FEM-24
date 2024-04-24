@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function NavbarComp() {
   return (
@@ -20,24 +21,25 @@ function NavbarComp() {
               navbarScroll
             >
               <NavDropdown title="Features" id="navbarScrollingDropdown">
-                {/* <Link to="/todolist"> */}
                 <NavDropdown.Item href="/todolist">Todo List</NavDropdown.Item>
-                {/* </Link> */}
+
                 <NavDropdown.Item href="/calendar">Calendar</NavDropdown.Item>
                 <NavDropdown.Item href="/remainder">Remainder</NavDropdown.Item>
                 <NavDropdown.Item href="/planner">Planner</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Company" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">History</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Our Team</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Blog</NavDropdown.Item>
+                <NavDropdown.Item href="/history">History</NavDropdown.Item>
+                <NavDropdown.Item href="/ourteam">Our Team</NavDropdown.Item>
+                <NavDropdown.Item href="/blog">Blog</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#action2">Career</Nav.Link>
-              <Nav.Link href="#action2">About</Nav.Link>
+              <Nav.Link href="/career">Career</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Button variant="outline-success">Login</Button>
-              <Button variant="outline-success">Register</Button>
+              <Button style={{ marginLeft: "10px" }} variant="outline-success">
+                Register
+              </Button>
             </Form>
           </Navbar.Collapse>
         </Container>
