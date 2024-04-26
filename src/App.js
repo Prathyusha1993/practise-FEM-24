@@ -1,6 +1,6 @@
 import React from "react";
 import MainPage from "./components/MainPage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import TodoList from "./components/TodoList";
 import Calendar from "./components/Calendar";
 import Remainder from "./components/Remainder";
@@ -12,11 +12,16 @@ import Career from "./components/Career";
 import About from "./components/About";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Protected from "./components/Protected";
+import NavbarComp from "./components/NavbarCompo";
 
 function App() {
   return (
     <div>
+      {/* <NavbarComp /> */}
+      {/* <Outlet /> */}
       <BrowserRouter>
+        <NavbarComp />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/todolist" element={<TodoList />} />
@@ -30,6 +35,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Protected />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcTodoList } from "react-icons/fc";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
@@ -14,8 +14,20 @@ import { FcPlanner } from "react-icons/fc";
 import { FaBlogger } from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
 import { FaHistory } from "react-icons/fa";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
-function NavbarComp() {
+const NavbarComp = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
+
   return (
     <div>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -65,6 +77,9 @@ function NavbarComp() {
               <Link to="/login">
                 <Button variant="outline-success">Login</Button>
               </Link>
+              <Button onClick={handleLogout} variant="outline-success">
+                Logout
+              </Button>
               <Link to="/register">
                 <Button
                   style={{ marginLeft: "10px" }}
@@ -79,7 +94,7 @@ function NavbarComp() {
       </Navbar>
     </div>
   );
-}
+};
 
 export default NavbarComp;
 

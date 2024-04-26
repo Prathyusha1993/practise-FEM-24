@@ -1,0 +1,24 @@
+.input-box {
+    width: 420px;
+}
+
+.input-container {
+    margin-top: 50px;
+    width:50%;
+    margin:auto;
+    padding:10px;
+}
+
+.form-container {
+    border: .5px solid black;
+    width: 600px;
+    border-radius: 10px;
+    height: 350px;
+    background-color: beige;
+    padding: 40px;
+}
+.text-h {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

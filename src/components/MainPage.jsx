@@ -5,7 +5,7 @@ import "../styles/Mainpage.css";
 function MainPage() {
   return (
     <div>
-      <NavbarComp />
+      {/* <NavbarComp /> */}
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "30px" }}
       >
