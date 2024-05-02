@@ -8,24 +8,26 @@ import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
-  const [loginForm, setLoginForm] = useState({});
+  // const [loginForm, setLoginForm] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  const setField = (field, value) => {
-    setLoginForm({
-      ...loginForm,
-      [field]: value,
-    });
-    if (!!errors[field])
-      setErrors({
-        ...errors,
-        [field]: null,
-      });
-  };
+  // const setField = (field, value) => {
+  //   setLoginForm({
+  //     ...loginForm,
+  //     [field]: value,
+  //   });
+  //   if (!!errors[field])
+  //     setErrors({
+  //       ...errors,
+  //       [field]: null,
+  //     });
+  // };
 
   const validateForm = () => {
-    const { email, password } = loginForm;
+    // const { email, password } = loginForm;
     const newErrors = {};
     if (!email || email === "")
       newErrors.email = "Please enter registered email";
@@ -46,14 +48,14 @@ function Login() {
     try {
       const userCeredential = await signInWithEmailAndPassword(
         auth,
-        loginForm.email,
-        loginForm.password
+        email,
+        password
       );
       console.log(userCeredential);
       const user = userCeredential.user;
       localStorage.setItem("token", user.accessToken);
       localStorage.setItem("user", JSON.stringify(user));
-      navigate("/");
+      navigate("/main");
     } catch (error) {
       console.log(error);
       setErrors(formErrors);
@@ -67,9 +69,9 @@ function Login() {
         <Form.Group className="mb-3 input-box" controlId="formGroupEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
-            value={loginForm.email}
+            value={email}
             isInvalid={!!errors.email}
-            onChange={(e) => setField("email", e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Enter email"
           />
@@ -80,8 +82,8 @@ function Login() {
         <Form.Group className="mb-3 input-box" controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            value={loginForm.password}
-            onChange={(e) => setField("password", e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             isInvalid={!!errors.password}
             type="password"
             placeholder="Password"

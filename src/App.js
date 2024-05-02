@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import MainPage from "./components/MainPage";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
 import TodoList from "./components/TodoList";
 import Calendar from "./components/Calendar";
 import Remainder from "./components/Remainder";
@@ -16,15 +22,21 @@ import Protected from "./components/Protected";
 import NavbarComp from "./components/NavbarCompo";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <div>
       {/* <NavbarComp /> */}
-      {/* <Outlet /> */}
+      <Outlet />
       <BrowserRouter>
         <NavbarComp />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/todolist" element={<TodoList />} />
+          <Route
+            path="/todolist"
+            // render={() => (loggedIn ? <TodoList /> : <Navigate to="/login" />)}
+            // element={loggedIn ? <TodoList /> : <Navigate to="/login" replace />}
+            element={<TodoList />}
+          />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/remainder" element={<Remainder />} />
           <Route path="/planner" element={<Planner />} />

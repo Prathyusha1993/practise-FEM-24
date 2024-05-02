@@ -5,7 +5,7 @@ function Protected() {
   const token = localStorage.getItem("token");
   return (
     <div>
-      token ? <Outlet /> : <Navigate to="/login" />
+      token ? <Outlet /> : <Navigate to="/register" />
     </div>
   );
 }

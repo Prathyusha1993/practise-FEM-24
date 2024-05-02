@@ -1,11 +1,40 @@
 import React from "react";
 import NavbarComp from "./NavbarCompo";
 import "../styles/Mainpage.css";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 function MainPage() {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await signOut(auth);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
+
   return (
     <div>
       {/* <NavbarComp /> */}
+      {/* <button
+        style={{
+          // display: "flex",
+          // marginTop: "20px",
+          border: "1px solid black",
+          borderRadius: "5px",
+          background: "none",
+          // float: "right",
+          marginBottom: "30px",
+          position: "absolute",
+          right: "10px",
+          top: "62px",
+        }}
+        onClick={handleLogout}
+        variant="outline-success"
+      >
+        Logout
+      </button> */}
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "30px" }}
       >

@@ -10,29 +10,31 @@ import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [form, setForm] = useState({});
+  //   const [form, setForm] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  const setField = (field, value) => {
-    setForm({
-      ...form,
-      [field]: value,
-    });
-    if (!!errors[field])
-      setErrors({
-        ...errors,
-        [field]: null,
-      });
-  };
+  //   const setField = (field, value) => {
+  //     setForm({
+  //       ...form,
+  //       [field]: value,
+  //     });
+  //     if (!!errors[field])
+  //       setErrors({
+  //         ...errors,
+  //         [field]: null,
+  //       });
+  //   };
 
   const validateForm = () => {
-    const { firstName, lastName, email, password } = form;
+    // const { firstName, lastName, email, password } = form;
     const newErrors = {};
-    if (!firstName || firstName === "")
-      newErrors.firstName = "Please enter First Name";
-    if (!lastName || lastName === "")
-      newErrors.lastName = "Please enter Last Name";
+    // if (!firstName || firstName === "")
+    //   newErrors.firstName = "Please enter First Name";
+    // if (!lastName || lastName === "")
+    //   newErrors.lastName = "Please enter Last Name";
     if (!email || email === "") newErrors.email = "Please enter Email";
     if (!password || password === "")
       newErrors.password = "Please enter Password";
@@ -64,8 +66,8 @@ const Register = () => {
     try {
       const userCeredential = await createUserWithEmailAndPassword(
         auth,
-        form.email,
-        form.password
+        email,
+        password
       );
       console.log(userCeredential);
       const user = userCeredential.user;
@@ -124,8 +126,8 @@ const Register = () => {
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
-              value={form.email}
-              onChange={(e) => setField("email", e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="input-box"
               isInvalid={!!errors.email}
               type="email"
@@ -138,8 +140,8 @@ const Register = () => {
           <Form.Group className="mb-3" controlId="formGroupPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              value={form.password}
-              onChange={(e) => setField("password", e.target.value)}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="input-box"
               isInvalid={!!errors.password}
               type="password"

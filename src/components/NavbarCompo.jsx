@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -18,8 +18,15 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 
 const NavbarComp = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState();
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    console.log(token);
+    setIsAuthenticated(token);
+  }, []);
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -32,7 +39,7 @@ const NavbarComp = () => {
     <div>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand href="#">Snap</Navbar.Brand>
+          <Navbar.Brand href="/">Snap</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -77,9 +84,30 @@ const NavbarComp = () => {
               <Link to="/login">
                 <Button variant="outline-success">Login</Button>
               </Link>
-              <Button onClick={handleLogout} variant="outline-success">
+
+              {/* <Button onClick={handleLogout} variant="outline-success">
                 Logout
-              </Button>
+              </Button> */}
+              {/* {isAuthenticated && (
+                <Link to="/login">
+                  <Button variant="outline-success">Login</Button>
+                </Link>
+              ) }
+              {isAuthenticated && (
+                <Button onClick={handleLogout} variant="outline-success">
+                  Logout
+                </Button>
+              )} */}
+
+              {/* {!!isAuthenticated ? (
+                <Button onClick={handleLogout} variant="outline-success">
+                  Logout
+                </Button>
+              ) : (
+                <Link to="/login">
+                  <Button variant="outline-success">Login</Button>
+                </Link>
+              )} */}
               <Link to="/register">
                 <Button
                   style={{ marginLeft: "10px" }}
