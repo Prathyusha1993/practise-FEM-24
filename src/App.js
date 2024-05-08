@@ -20,6 +20,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Protected from "./components/Protected";
 import NavbarComp from "./components/NavbarCompo";
+import "./App.css";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);

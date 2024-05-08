@@ -3,8 +3,14 @@ import TodoWrapper from "./todolistComponents/TodoWrapper";
 
 const TodoList = () => {
   return (
-    <div>
-      <h4>This is TodoList Component</h4>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {/* <h4>This is TodoList Component</h4> */}
       <TodoWrapper />
     </div>
   );
