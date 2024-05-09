@@ -10,7 +10,6 @@ const Todo = ({ handleAddTodos }) => {
   };
   return (
     <div className="todo-container">
-      {/* <h4>Get Things Done!</h4> */}
       <form onSubmit={handleSubmit}>
         <input
           className="todo-input"

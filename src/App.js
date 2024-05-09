@@ -8,7 +8,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import TodoList from "./components/TodoList";
-import Calendar from "./components/Calendar";
+import CalendarBar from "./components/CalendarBar";
 import Remainder from "./components/Remainder";
 import Planner from "./components/Planner";
 import History from "./components/History";
@@ -38,7 +38,7 @@ function App() {
             // element={loggedIn ? <TodoList /> : <Navigate to="/login" replace />}
             element={<TodoList />}
           />
-          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/calendar" element={<CalendarBar />} />
           <Route path="/remainder" element={<Remainder />} />
           <Route path="/planner" element={<Planner />} />
           <Route path="/history" element={<History />} />

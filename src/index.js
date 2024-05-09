@@ -3,27 +3,27 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {
-  createRoutesFromElements,
-  createBrowserRouter,
-  Route,
-  RouterProvider,
-  Redirect,
-} from "react-router-dom";
-import Register from "./components/Register";
-import Login from "./components/Login";
-import Protected from "./components/Protected";
-import MainPage from "./components/MainPage";
-import TodoList from "./components/TodoList";
-import Calendar from "./components/Calendar";
-import Remainder from "./components/Remainder";
-import Planner from "./components/Planner";
-import History from "./components/History";
-import OurTeam from "./components/OurTeam";
-import Blog from "./components/Blog";
-import Career from "./components/Career";
-import About from "./components/About";
-import NavbarComp from "./components/NavbarCompo";
+// import {
+//   createRoutesFromElements,
+//   createBrowserRouter,
+//   Route,
+//   RouterProvider,
+//   Redirect,
+// } from "react-router-dom";
+// import Register from "./components/Register";
+// import Login from "./components/Login";
+// import Protected from "./components/Protected";
+// import MainPage from "./components/MainPage";
+// import TodoList from "./components/TodoList";
+// import Calendar from "./components/Calendar";
+// import Remainder from "./components/Remainder";
+// import Planner from "./components/Planner";
+// import History from "./components/History";
+// import OurTeam from "./components/OurTeam";
+// import Blog from "./components/Blog";
+// import Career from "./components/Career";
+// import About from "./components/About";
+// import NavbarComp from "./components/NavbarCompo";
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(

@@ -114,3 +114,11 @@ body {
   color: #fff;
   font-family: 'Poppins', sans-serif;
 }
+
+.react-calendar__month-view__weekdays {
+  color: gray;
+}
+
+.react-calendar__navigation button {
+  font-size: 1em;
+}
